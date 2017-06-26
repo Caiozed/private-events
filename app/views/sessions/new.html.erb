@@ -1,0 +1,9 @@
+<h1>Log in</h1>
+<%= form_for :session, url: login_path do |f| %>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+	<span>
+	<%= f.check_box :remember_me %> Remember me	
+	</span>
+	<%= f.submit "Log in"%>
+<%end%>
