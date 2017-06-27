@@ -1,12 +1,42 @@
 <h1>Events</h1>
 
+<h2><%= @user.name %></h2>
+<h3>Events created</h3>
 <ul>
 	<% @events.each do |event| %>
 		<li>
-			<%= event.event_date %>
+			<span> <%= event.event_date %> </span>
+			<span> <%= link_to event.event_name, event %> </span>
+			<span> <%= event.event_description %> </span>
+
 		</li>
+	<%end%>
+</ul>
+
+<%= link_to "New event", new_event_path %>
+
+<h3>Upcoming Events</h3>
+
+<ul>
+	<% @user.user_events.upcoming.each do |event| %>
 		<li>
-			<%= event.event_name %>
+			<span> <%= event.event_date %> </span>
+			<span> <%= link_to event.event_name, event %> </span>
+			<span> <%= event.event_description %> </span>
+
+		</li>
+	<%end%>
+</ul>
+
+<h3>Previous Events</h3>
+
+<ul>
+	<% @user.user_events.previous.each do |event| %>
+		<li>
+			<span> <%= event.event_date %> </span>
+			<span> <%= link_to event.event_name, event %> </span>
+			<span> <%= event.event_description %> </span>
+
 		</li>
 	<%end%>
 </ul>

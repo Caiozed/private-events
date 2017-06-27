@@ -11,10 +11,14 @@
   <body>
   	<header>
   	<% if is_logged_in? %>
+      <%= link_to "Home", root_path %>
   		Hello, <%= current_user.name%>
   		<%= link_to "Log out", logout_path(current_user), method: :delete %>
+      <%= link_to 'My events', user_path(current_user)  %>
+      <%= link_to 'All Events', events_path %>
   	<%else%>
   		<%= link_to "Log in", login_path %>
+      <%= link_to 'Sign up', new_user_path %>
   	<%end%>
   	</header>
     <%= yield %>

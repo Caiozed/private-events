@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
   	@events = current_user.events 
+ 		@user = @events.first.creator
   end
 
   private
@@ -24,7 +25,4 @@ class UsersController < ApplicationController
   	params.require(:user).permit(:name, :email)
   end
 
-  def correct_user
-  	redirect_to login_path unless is_logged_in? 
-  end
 end
